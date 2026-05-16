@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                AI Student Predictor
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-5">
+
+        <!-- Dashboard Cards -->
+        <div class="row mb-4">
+
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <h3>Model Accuracy</h3>
+                    <h1>{{ accuracy }}%</h1>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <h3>AI Model</h3>
+                    <h1>Random Forest</h1>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="dashboard-card">
+                    <h3>Dataset Size</h3>
+                    <h1>1000+</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Form -->
+        <div class="form-container">
+
+            <h2 class="mb-4 text-center">
+                Student Performance Prediction
+            </h2>
+
+            <form action="/predict" method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Study Hours</label>
+
+                        <input
+                            type="number"
+                            step="0.1"
+                            class="form-control"
+                            name="study_hours"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Attendance (%)</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="attendance"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Assignment Score</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="assignments_score"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Exam Score</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="exam_score"
+                            required>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Sleep Hours</label>
+
+                        <input
+                            type="number"
+                            step="0.1"
+                            class="form-control"
+                            name="sleep_hours"
+                            required>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-primary w-100 btn-lg">
+                    Predict Result
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Charts -->
+        <!-- <div class="row mt-5">
+
+            <div class="col-md-6 mb-4">
+                <div class="chart-card">
+                    <h4>Pass vs Fail</h4>
+
+                    <img
+                        src="{{ url_for('static', filename='charts/pie_chart.png') }}"
+                        class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="chart-card">
+                    <h4>Model Accuracy</h4>
+
+                    <img
+                        src="{{ url_for('static', filename='charts/accuracy_chart.png') }}"
+                        class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="chart-card">
+                    <h4>Attendance vs Exam Score</h4>
+
+                    <img
+                        src="{{ url_for('static', filename='charts/scatter_chart.png') }}"
+                        class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="chart-card">
+                    <h4>Study Hours Histogram</h4>
+
+                    <img
+                        src="{{ url_for('static', filename='charts/histogram_chart.png') }}"
+                        class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+</body>
+
+</html>
